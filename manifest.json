@@ -8,6 +8,7 @@
     "default_icon": "assets/logo.png"
   },
   "host_permissions": [
-    "https://www.target.com/"
+    "https://www.target.com/",
+    "http://localhost/"
   ]
 }
