@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Target Review Augmenter",
+  "description": "Easily search and interpret reviews on Target.com",
+  "version": "1.0",
+  "action": {
+    "default_popup": "home.html",
+    "default_icon": "assets/logo.png"
+  },
+  "host_permissions": [
+    "https://www.target.com/"
+  ]
+}
