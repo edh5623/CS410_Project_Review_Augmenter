@@ -1,14 +1,15 @@
 import json
 import json as js
+import ranker
 
 
-def get_top_reviews():
-    return parse_reviews()
+def get_top_reviews(query, reviews):
+    reviews = parse_reviews(get_sample_reviews_json())
+    ranker.rank(query, docs=reviews)
 
 
-def parse_reviews():
-    reviews_json = get_sample_reviews_json()
-    return reviews_json
+def parse_reviews(reviews_json):
+    return [review["body"] for review in reviews_json["reviews"]]
 
 
 def get_sample_reviews_json():
@@ -206,4 +207,5 @@ def get_sample_reviews_json():
     """
     return json.loads(sample)
 
-parse_reviews()
+# parse_reviews(get_sample_reviews_json())
+get_top_reviews("colors", "r")
