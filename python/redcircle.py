@@ -2,6 +2,10 @@ import json
 import json as js
 
 
+def get_top_reviews():
+    return parse_reviews()
+
+
 def parse_reviews():
     reviews_json = get_sample_reviews_json()
     return reviews_json

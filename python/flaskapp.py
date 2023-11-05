@@ -11,8 +11,10 @@ def reviews():
 @app.route('/tra/query')
 def query():
     item_url = request.args.get("item_url")
+    query = request.args.get("query_text")
     print("Item URL: " + item_url)
-    return jsonify("python response!")#parse_reviews()
+    print("Query: " + query)
+    return parse_reviews()
 
 
 if __name__ == '__main__':
