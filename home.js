@@ -23,7 +23,13 @@ submitQueryButton.addEventListener("click", async function () {
 
         // Send the request to the python flask server
         fetch(`http://localhost:5000/tra/query?query_text=${query}&item_url=${itemUrl}`).then(r => r.json()).then(result => {
-            document.getElementById("review_lst").innerHTML = JSON.stringify(result.reviews)
+            // Add review contents to html list
+            const reviewLst = document.getElementById("review_lst")
+            for (const review of result.reviews) {
+                let li = document.createElement('li');
+                li.innerText = review.body;
+                reviewLst.appendChild(li);
+            }
         })
     }
 )

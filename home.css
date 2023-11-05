@@ -1,0 +1,19 @@
+.title {
+    font-family:'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    color: crimson;
+    font-size: medium;
+    text-align: left;
+    margin-left: 8px;
+    padding: 6px;
+}
+.search-container {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    margin-left: 8px;
+    font-size: 15px;
+    min-width: 450px;
+    max-width: 100%;
+}
