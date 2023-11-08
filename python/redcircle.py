@@ -5,7 +5,8 @@ import ranker
 
 def get_top_reviews(query, reviews):
     reviews = parse_reviews(get_sample_reviews_json())
-    ranker.rank(query, docs=reviews)
+    ranked = ranker.rank(query, docs=reviews)
+    return ranked
 
 
 def parse_reviews(reviews_json):
@@ -208,4 +209,5 @@ def get_sample_reviews_json():
     return json.loads(sample)
 
 # parse_reviews(get_sample_reviews_json())
-get_top_reviews("colors", "r")
+
+# print(get_top_reviews("colors", ""))

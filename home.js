@@ -23,12 +23,25 @@ submitQueryButton.addEventListener("click", async function () {
 
         // Send the request to the python flask server
         fetch(`http://localhost:5000/tra/query?query_text=${query}&item_url=${itemUrl}`).then(r => r.json()).then(result => {
-            // Add review contents to html list
             const reviewLst = document.getElementById("review_lst")
-            for (const review of result.reviews) {
+
+            // Remove the current contents of the html list
+            while (reviewLst.firstChild) {
+                reviewLst.removeChild(reviewLst.firstChild)
+            }
+
+            if (result.length === 0) {
                 let li = document.createElement('li');
-                li.innerText = review.body;
+                li.innerText = "No reviews found";
                 reviewLst.appendChild(li);
+            } else {
+
+                // Add review contents to html list
+                for (const review of result) {
+                    let li = document.createElement('li');
+                    li.innerText = review;
+                    reviewLst.appendChild(li);
+                }
             }
         })
     }
