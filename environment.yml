@@ -1,0 +1,34 @@
+name: cs410-35
+channels:
+  - defaults
+dependencies:
+  - blas=1.0=mkl
+  - certifi=2020.6.20=pyhd3eb1b0_3
+  - click=7.1.2=pyhd3eb1b0_0
+  - flask=1.1.4=pyhd3eb1b0_0
+  - icc_rt=2022.1.0=h6049295_2
+  - intel-openmp=2023.1.0=h59b6b97_46319
+  - itsdangerous=1.1.0=pyhd3eb1b0_0
+  - jinja2=2.11.3=pyhd3eb1b0_0
+  - markupsafe=1.0=py35hfa6e2cd_1
+  - mkl=2018.0.3=1
+  - mkl_fft=1.0.6=py35hdbbee80_0
+  - mkl_random=1.0.1=py35h77b88f5_1
+  - numpy=1.15.2=py35ha559c80_0
+  - numpy-base=1.15.2=py35h8128ebf_0
+  - pip=10.0.1=py35_0
+  - python=3.5.6=he025d50_0
+  - pytoml=0.1.21=pyhd3eb1b0_0
+  - scipy=1.1.0=py35h4f6bf74_1
+  - setuptools=40.2.0=py35_0
+  - tbb=2021.8.0=h59b6b97_0
+  - tbb4py=2018.0.5=py35he980bc4_0
+  - vc=14.2=h21ff451_1
+  - vs2015_runtime=14.27.29016=h5e58377_2
+  - waitress=2.0.0=pyhd3eb1b0_0
+  - werkzeug=1.0.1=pyhd3eb1b0_0
+  - wheel=0.37.1=pyhd3eb1b0_0
+  - wincertstore=0.2=py35hfebbdb8_0
+  - pip:
+      - metapy==0.2.13
+prefix: C:\Conda\envs\cs410-35
