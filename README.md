@@ -19,7 +19,7 @@ To run this extension we need to first add the extension to Chrome and additiona
    * Download Conda:
      * Windows: https://docs.anaconda.com/free/anaconda/install/windows/
      * MacOS: https://docs.anaconda.com/free/anaconda/install/mac-os/
-   * Clone the Conda environment for this project with the environment.yml as such: `conda env create -f environment.yml`
+   * From the CS410_Project_Review_Augmenter directory, clone the Conda environment for this project with the environment.yml as such: `conda env create -f environment.yml`
    * Activate the environment: `conda activate cs410-35`
  * 4\. Run the Flask Server
    * From the CS410_Project_Review_Augmenter directory with the cs410-35 environment active run: `python python/flaskapp.py`
