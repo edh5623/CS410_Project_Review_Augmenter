@@ -31,6 +31,7 @@ def rank(query, docs):
     scores = ranker.score(idx, query_doc, 10)
     ranked_docs = [docs[score[0]-1] for score in scores]
 
+    # Fix not working on command line
     print(scores)
     print(ranked_docs)
 
