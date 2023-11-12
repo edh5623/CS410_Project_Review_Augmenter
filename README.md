@@ -19,11 +19,13 @@ To run this extension we need to first add the extension to Chrome and additiona
    * Download Conda:
      * Windows: https://docs.anaconda.com/free/anaconda/install/windows/
      * MacOS: https://docs.anaconda.com/free/anaconda/install/mac-os/
-   * From the CS410_Project_Review_Augmenter directory, clone the Conda environment for this project with the environment.yml as such: `conda env create -f environment.yml`
+   * From the CS410_Project_Review_Augmenter directory, clone the Conda environment for this project using the environment.yml with this command: `conda env create -f environment.yml`
    * Activate the environment: `conda activate cs410-35`
  * 4\. Run the Flask Server
-   * From the CS410_Project_Review_Augmenter directory with the cs410-35 environment active run: `python python/flaskapp.py`
- * 5\. Now the extension is ready to use in Chome
- * 6\. When done using the extension close the server with ctrl-c. To use the extension in the future, run the flaskapp server before use.
+   * From the `CS410_Project_Review_Augmenter/python` directory with the cs410-35 environment active run: `python python/flaskapp.py`
+   * The Flask server is now running
+ * 5\. The extension is now ready to use in Chome
+
+When done using the extension close the server with ctrl-c. To use the extension in the future, run the flaskapp server before use.
 
  ## Use
