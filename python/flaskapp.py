@@ -15,6 +15,7 @@ def query():
     print("Item URL: " + item_url)
     print("Query: " + query)
     results_lst = get_top_reviews(query, item_url)
+    # TODO: Comment out to work from command line
     print("results_lst")
     print(results_lst)
     return json.dumps(results_lst)

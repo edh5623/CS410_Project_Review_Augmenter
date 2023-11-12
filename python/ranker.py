@@ -33,6 +33,7 @@ def rank(query, docs):
 
     # Fix not working on command line
     print(scores)
+    # TODO: Comment out to work on command line
     print(ranked_docs)
 
     return ranked_docs
