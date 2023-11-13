@@ -1,16 +1,33 @@
 import json
 import json as js
 import ranker
+import requests
+from config import api_key
 
 
-def get_top_reviews(query, reviews):
-    reviews = parse_reviews(get_sample_reviews_json())
+def get_top_reviews(query, url):
+    reviews = parse_reviews(get_reviews(url))
     ranked = ranker.rank(query, docs=reviews)
     return ranked
 
 
 def parse_reviews(reviews_json):
     return [review["body"] for review in reviews_json["reviews"]]
+
+def get_reviews(url):
+    params = {
+        'api_key': api_key,
+        'type': 'reviews',
+        'url': url
+    }
+
+    # make the http GET request to RedCircle API
+    api_result = requests.get('https://api.redcircleapi.com/request', params)
+
+    # print the JSON response from RedCircle API
+    json_result = api_result.json()
+    print(json.dumps(json_result))
+    return json_result
 
 
 def get_sample_reviews_json():
@@ -208,6 +225,124 @@ def get_sample_reviews_json():
     """
     return json.loads(sample)
 
+def bbal():
+    js = """
+    {
+  "pagination": {
+    "total_pages": 1,
+    "current_page": 1
+  },
+  "request_parameters": {
+    "type": "reviews",
+    "url": "https://www.target.com/p/wilson-nba-forge-size-6-basketball/-/A-82153637#lnk=sametab"
+  },
+  "request_metadata": {
+    "total_time_taken": 0.77,
+    "target_url": "https://www.target.com/p/-/A-82153637",
+    "created_at": "2023-11-12T22:20:07.127Z",
+    "processed_at": "2023-11-12T22:20:07.900Z"
+  },
+  "reviews": [
+    {
+      "date": "2023-02-28T20:53:25.000Z",
+      "source": {
+        "author_name": "Kat",
+        "author_id": "568543942",
+        "verified_purchase": true,
+        "is_external_source": false
+      },
+      "title": "NBA basketball",
+      "rating": 5,
+      "position": 1,
+      "id": "5f47d95a-7e1d-49f6-a5f4-59d0972e6a5c",
+      "body": "Great basketball for the price."
+    },
+    {
+      "date": "2022-12-07T03:20:49.000Z",
+      "source": {
+        "author_name": "AD",
+        "author_id": "10008321582",
+        "verified_purchase": true,
+        "is_external_source": false
+      },
+      "title": "Zero stars",
+      "rating": 1,
+      "position": 2,
+      "id": "05f31c15-c6b7-49b4-a09b-dc81186b241a",
+      "body": "I ordered these as a donation for our school basketball teams. More than half of them won\u2019t hold air!! What a hassle!!",
+      "positive_feedback": 1
+    },
+    {
+      "date": "2022-08-14T00:20:59.000Z",
+      "source": {
+        "author_name": "Nana33",
+        "syndication_source": "bazaarvoice",
+        "is_external_source": true,
+        "external_source": "wilson.com",
+        "verified_purchase": false,
+        "author_id": "35557073-ee9f-5d0b-b20d-fd6409aa5a34"
+      },
+      "title": "Great quality.",
+      "rating": 5,
+      "position": 3,
+      "id": "dc40ecac-08ab-4ac5-9e9e-6b28eb14cf5c",
+      "body": "This was a replacement for a replacement basketball that was not holding air. So far, so good\u2026happy granddaughter\u2026",
+      "positive_feedback": 1
+    },
+    {
+      "date": "2022-01-09T13:58:27.000Z",
+      "source": {
+        "author_name": "bballjunkie",
+        "author_id": "1132061675",
+        "verified_purchase": false,
+        "is_external_source": false
+      },
+      "title": "Pass the rock, literally.",
+      "rating": 3,
+      "position": 4,
+      "negative_feedback": 1,
+      "id": "60c3b84b-981f-4235-8a80-d16081ec8c4f",
+      "body": "I like that the ball seems durable and seems told air well. What I don't like is how hard and heavy it feels. Feels like your tossing a brick around. Everybody that played with it was so fearful of getting hit in the face with it. Nothing compares to the evolution ball.",
+      "positive_feedback": 1
+    },
+    {
+      "date": "2022-01-07T16:01:26.000Z",
+      "source": {
+        "author_name": "Flyrod",
+        "author_id": "722408228",
+        "verified_purchase": true,
+        "is_external_source": false
+      },
+      "title": "Basketball",
+      "rating": 5,
+      "position": 5,
+      "id": "b95fd5b8-ccb4-40dd-aedf-47bd468f820b",
+      "body": "Good value for the cost",
+      "positive_feedback": 2
+    }
+  ],
+  "summary": {
+    "recommended_percentage": 50,
+    "rating_breakdown": {
+      "five_star": 15,
+      "four_star": 1,
+      "one_star": 1,
+      "two_star": 0,
+      "three_star": 1
+    },
+    "ratings_total": 5,
+    "rating": 4.61
+  },
+  "request_info": {
+    "credits_used": 1,
+    "credits_used_this_request": 1,
+    "success": true,
+    "credits_remaining": 99
+  }
+}
+    """
+    return json.loads(js)
+
 # parse_reviews(get_sample_reviews_json())
 
-# print(get_top_reviews("colors", ""))
+# print(get_top_reviews("does it gold air?", ""))
