@@ -2,18 +2,37 @@
 # import pytoml
 # import os
 import rank_bm25 as bm
+import nltk
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+
+nltk.download('punkt')
+nltk.download('stopwords')
 
 def rank(query, docs):
-    tokenized_corpus = [doc.split(" ") for doc in docs]
+    tokenized_corpus = [preprocess_doc(doc) for doc in docs]
 
-    bm25 = bm.BM25Okapi(tokenized_corpus)
+    bm25 = bm.BM25Okapi(tokenized_corpus, k1=1.2, b=0.75)  # Defaults form Metapy
     tokenized_query = query.split(" ")
 
     top = bm25.get_top_n(tokenized_query, docs, n=90)
     print(top)
     return top
 
+def preprocess_doc(document):
+    tokenized = word_tokenize(document)
 
+    stop_words = set(stopwords.words("english"))
+    stemmer = PorterStemmer()
+
+    preprocessed = []
+
+    for word in tokenized:
+        if word not in stop_words:
+            preprocessed.append(stemmer.stem(word))
+
+    return preprocessed
 
 """
 Metapy implementation below with bugs. Saved for future investigation.
