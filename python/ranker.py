@@ -13,7 +13,7 @@ nltk.download('stopwords')
 def rank(query, docs):
     tokenized_corpus = [preprocess_doc(doc) for doc in docs]
 
-    bm25 = bm.BM25Okapi(tokenized_corpus, k1=1.2, b=0.75)  # Defaults form Metapy
+    bm25 = bm.BM25Okapi(tokenized_corpus, k1=1.2, b=0.75)  # Defaults from Metapy
     tokenized_query = query.split(" ")
 
     top = bm25.get_top_n(tokenized_query, docs, n=90)
