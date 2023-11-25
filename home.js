@@ -2,8 +2,12 @@
 var submitQueryButton = document.getElementById("submit_button");
 
 document.getElementById("ratings").style.display = "none";
+document.getElementById("loader").style.display = "none";
 
 submitQueryButton.addEventListener("click", async function () {
+
+        // show the loading wheel
+        document.getElementById("loader").style.display = "block";
 
         // Getting tabs
         const tabs = await chrome.tabs.query({
@@ -25,6 +29,10 @@ submitQueryButton.addEventListener("click", async function () {
 
         // Send the request to the python flask server
         fetch(`http://localhost:5000/tra/query?query_text=${query}&item_url=${itemUrl}`).then(r => r.json()).then(result => {
+            // hide the loading wheel
+            document.getElementById("loader").style.display = "none";
+
+            // show and populate the rating numbers
             document.getElementById("ratings").style.display = "block";
             document.getElementById("five_star_rating").innerText = result["five_star_rating"];
             document.getElementById("tra_sentiment").innerText = result["sentiment_rating"];
