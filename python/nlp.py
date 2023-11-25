@@ -6,19 +6,13 @@ import nltk
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('vader_lexicon')
+sentiment_analyzer = SentimentIntensityAnalyzer()
 
-def rank(query, docs):
-    tokenized_corpus = [preprocess_doc(doc) for doc in docs]
-
-    bm25 = bm.BM25Okapi(tokenized_corpus, k1=1.2, b=0.75)  # Defaults from Metapy
-    tokenized_query = query.split(" ")
-
-    top = bm25.get_top_n(tokenized_query, docs, n=90)
-    print(top)
-    return top
 
 def preprocess_doc(document):
     tokenized = word_tokenize(document)
@@ -34,11 +28,27 @@ def preprocess_doc(document):
 
     return preprocessed
 
-"""
-Metapy implementation below with bugs. Saved for future investigation.
-"""
+
+def rank(query, docs):
+    tokenized_corpus = [preprocess_doc(doc) for doc in docs]
+
+    bm25 = bm.BM25Okapi(tokenized_corpus, k1=1.2, b=0.75)  # Defaults from Metapy
+    tokenized_query = query.split(" ")
+
+    top = bm25.get_top_n(tokenized_query, docs, n=90)
+    print(top)
+    return top
 
 
+def sentiment(doc):
+    preprocessed = " ".join(preprocess_doc(doc))
+    return sentiment_analyzer.polarity_scores(preprocessed)["compound"]
+
+
+##########################################
+# Metapy implementation below with bugs. Saved for future investigation.
+##########################################
+#
 # dataset_path = "review_docs/review_docs.dat"
 #
 # def load_ranker():
@@ -70,7 +80,6 @@ Metapy implementation below with bugs. Saved for future investigation.
 #
 #     # Fix not working on command line
 #     print(scores)
-#     # TODO: Comment out to work on command line
 #     print(ranked_docs)
 #
 #     return ranked_docs

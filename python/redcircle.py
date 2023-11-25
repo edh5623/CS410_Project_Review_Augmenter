@@ -1,5 +1,5 @@
 import json
-import ranker
+import nlp
 import requests
 from config import api_key
 
@@ -10,16 +10,21 @@ def get_top_reviews_and_ratings(query, url):
     (five_star_rating, sentiment_rating) = get_ratings(reviews_json)
     reviews = parse_reviews(reviews_json)
 
-    ranked = ranker.rank(query, docs=reviews)
+    ranked = nlp.rank(query, docs=reviews)
+
     return {"five_star_rating" : five_star_rating, "sentiment_rating" : sentiment_rating, "ranked_reviews" : ranked}
 
 
 def get_ratings(reviews_json):
     five_star = reviews_json["summary"]["rating"]
+
+    # average sentiment score of every review
     sentiment_rating_sum = 0
     for review in reviews_json["reviews"]:
-        sentiment_rating_sum += 0 # TODO:  sentiment(review["body"])
-    return five_star, sentiment_rating_sum / len(reviews_json["reviews"])
+        sentiment_rating_sum += nlp.sentiment(review["body"])
+    num_reviews = len(reviews_json["reviews"])
+
+    return five_star, round(sentiment_rating_sum / num_reviews, 2)
 
 
 def parse_reviews(reviews_json):
