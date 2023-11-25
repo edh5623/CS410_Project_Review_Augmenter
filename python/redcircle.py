@@ -1,18 +1,30 @@
 import json
-import json as js
 import ranker
 import requests
 from config import api_key
 
 
-def get_top_reviews(query, url):
-    reviews = parse_reviews(get_reviews(url))
+def get_top_reviews_and_ratings(query, url):
+    reviews_json = get_reviews(url)
+
+    (five_star_rating, sentiment_rating) = get_ratings(reviews_json)
+    reviews = parse_reviews(reviews_json)
+
     ranked = ranker.rank(query, docs=reviews)
-    return ranked
+    return {"five_star_rating" : five_star_rating, "sentiment_rating" : sentiment_rating, "ranked_reviews" : ranked}
+
+
+def get_ratings(reviews_json):
+    five_star = reviews_json["summary"]["rating"]
+    sentiment_rating_sum = 0
+    for review in reviews_json["reviews"]:
+        sentiment_rating_sum += 0 # TODO:  sentiment(review["body"])
+    return five_star, sentiment_rating_sum / len(reviews_json["reviews"])
 
 
 def parse_reviews(reviews_json):
     return [review["body"] for review in reviews_json["reviews"]]
+
 
 def get_reviews(url):
     params = {

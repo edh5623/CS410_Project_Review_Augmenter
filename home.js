@@ -1,6 +1,8 @@
 // Passing the current tab URL to the flask server
 var submitQueryButton = document.getElementById("submit_button");
 
+document.getElementById("ratings").style.display = "none";
+
 submitQueryButton.addEventListener("click", async function () {
 
         // Getting tabs
@@ -13,17 +15,21 @@ submitQueryButton.addEventListener("click", async function () {
         });
 
         // Adding the tab URLs to an array
-        const urls = []
+        const urls = [];
         for (const tab of tabs) {
             urls.push(tab.url)
         }
 
-        var itemUrl = urls.join(' ')
-        var query = document.getElementById("search_bar").value.toString()
+        var itemUrl = urls.join(' ');
+        var query = document.getElementById("search_bar").value.toString();
 
         // Send the request to the python flask server
         fetch(`http://localhost:5000/tra/query?query_text=${query}&item_url=${itemUrl}`).then(r => r.json()).then(result => {
-            const reviewLst = document.getElementById("review_lst")
+            document.getElementById("ratings").style.display = "block";
+            document.getElementById("five_star_rating").innerText = result["five_star_rating"];
+            document.getElementById("tra_sentiment").innerText = result["sentiment_rating"];
+
+            const reviewLst = document.getElementById("review_lst");
 
             // Remove the current contents of the html list
             while (reviewLst.firstChild) {
@@ -37,7 +43,7 @@ submitQueryButton.addEventListener("click", async function () {
             } else {
 
                 // Add review contents to html list
-                for (const review of result) {
+                for (const review of result["ranked_reviews"]) {
                     let li = document.createElement('li');
                     li.innerText = review;
                     reviewLst.appendChild(li);
