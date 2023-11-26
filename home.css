@@ -1,25 +1,58 @@
 .title {
-    font-family:'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
     color: crimson;
     font-size: medium;
     text-align: left;
     margin-left: 8px;
     padding: 6px;
 }
+
 .search-container {
     float: right;
     padding: 6px;
     border: none;
     margin-right: 16px;
     margin-left: 8px;
-    font-size: 15px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: Calibri, sans-serif;
     min-width: 450px;
     max-width: 100%;
 }
 
+.search-container input[type=search] {
+    padding: 6px;
+    font-size: 17px;
+    border: none;
+    background: #ddd;
+}
+
+.search-container button {
+    padding: 6px;
+    background: #ddd;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background: #ccc;
+}
+
+li:not(:last-child) {
+    margin-bottom: 8px;
+
+}
+
+li {
+    background: #e8e8e8;
+    border: 15px solid #e8e8e8;
+    border-radius: 25px;
+}
+
 .loader {
-    border: 12px solid #f3f3f3; /* Light grey */
-    border-top: 12px solid crimson; /* Blue */
+    border: 12px solid #f3f3f3;
+    border-top: 12px solid crimson;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -31,4 +64,18 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+body::-webkit-scrollbar {
+  width: 14px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #e8e8e8;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ccc;    /* color of the scroll thumb */
+  border-radius: 25px;       /* roundness of the scroll thumb */
+  /*border: 2px solid #ccc;  !* creates padding around scroll thumb *!*/
 }

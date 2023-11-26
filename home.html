@@ -6,17 +6,17 @@
   <div class="title">
     <h1>Target Review Augmenter</h1>
   </div>
-  <div id="ratings" class="search-container">
-    <b>Average 5-Star Rating: </b> <b id="five_star_rating"></b>
-    <br>
-    <b>Target Review Augmenter Sentiment Rating: </b> <b id="tra_sentiment"></b>
-    <p style="margin:0; padding-top:0; font-size: 13px">* Sentiment rating is on a -1 to 1 scale with 1 being positive and -1 being negative.</p>
-  </div>
   <div class="search-container">
     <input id="search_bar" type="search" placeholder="Search Reviews..">
     <button id="submit_button" type="submit">Search</button>
     <div id="loader" class="loader"></div>
-    <p id="review_lst"></p>
+  </div>
+  <div id="ratings" class="search-container">
+    <b>Average 5-Star Rating: </b> <b id="five_star_rating"></b>
+    <br>
+    <b>Target Review Augmenter Sentiment Rating: </b> <b id="tra_sentiment"></b>
+    <p style="margin:0; padding-top:0; font-size: 14px">* Sentiment rating is on a -1 to 1 scale with 1 being positive and -1 being negative.</p>
+    <p id="review_lst" style="list-style-type: none;"></p>
   </div>
   <script src="./home.js" type="module"></script>
 </html>
