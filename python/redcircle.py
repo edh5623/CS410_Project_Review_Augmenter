@@ -20,11 +20,13 @@ def get_ratings(reviews_json):
 
     # average sentiment score of every review
     sentiment_rating_sum = 0
+    weight_sum = 0
     for review in reviews_json["reviews"]:
-        sentiment_rating_sum += nlp.sentiment(review["body"])
-    num_reviews = len(reviews_json["reviews"])
+        review_len = min(len(review["body"].split()), 50)  # limit the weight at 50 so we don't overweight super long reviews
+        weight_sum += review_len
+        sentiment_rating_sum += review_len * nlp.sentiment(review["body"])
 
-    return five_star, round(sentiment_rating_sum / num_reviews, 2)
+    return five_star, round(sentiment_rating_sum / weight_sum, 2)
 
 
 def parse_reviews(reviews_json):
