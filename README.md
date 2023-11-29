@@ -1,10 +1,16 @@
 # CS410_Project_Review_Augmenter
 
+## Overview 
+1. An overview of the function of the code (i.e., what it does and what it can be used for). 
+
 Chrome extension to augment Target.com with BM25 search on product reviews and a product review sentiment score.
 
-## Overview
+- list functions
 
+### Use
 
+## Implementation 
+2. how the software is implemented with sufficient detail so that others can have a basic understanding of your code for future extension or any further improvement. 
 
 ### Key Components:
 * Google Chrome Extensions: https://developer.chrome.com/docs/extensions/mv3/getstarted/
@@ -15,6 +21,8 @@ Chrome extension to augment Target.com with BM25 search on product reviews and a
 
 
 ## Setup
+3. Documentation of the usage of the software including either documentation of usages of APIs or detailed instructions on how to install and run a software, whichever is applicable.
+   
 This Chrome extension runs with a Python backend and uses a Flask webserver to allow JavaScript to call Python code. The Python code makes requests to the RedCircle API to get Target product review data.
 
 To run this extension we need to first add the extension to Chrome, run the Flask server included in this repo, and add a RedCircle API key.
@@ -43,7 +51,7 @@ To run this extension we need to first add the extension to Chrome, run the Flas
      * ```
        api_key = "YOUR_COPIED_API_KEY"
        ```
-   * This free RedCircle account will give you 100 free requests for testing.
+   * This free RedCircle account will give you 100 free requests for testing. A request is made every time a query is submitted via the "Search" button.
  * 5\. Run the Flask Server
    * From the `CS410_Project_Review_Augmenter/python` directory with the cs410-35 environment active run: `python python/flaskapp.py`
    * The Flask server is now running
@@ -51,4 +59,7 @@ To run this extension we need to first add the extension to Chrome, run the Flas
 
 When done using the extension close the server with ctrl-c. To use the extension in the future, run the flaskapp server before use.
 
- ## Use
+## Contributors
+Ethan Howes - edhowes2@illinois.edu
+
+This project was solely completed by Ethan Howes on a 1-person team.
