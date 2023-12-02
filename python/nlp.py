@@ -1,6 +1,7 @@
-# import metapy
-# import pytoml
-# import os
+"""
+NLP functions for pre-processing, ranking, and sentiment scoring of text.
+"""
+
 import rank_bm25 as bm
 import nltk
 from nltk.stem import PorterStemmer
@@ -36,7 +37,6 @@ def rank(query, docs):
     tokenized_query = query.split(" ")
 
     top = bm25.get_top_n(tokenized_query, docs, n=90)
-    print(top)
     return top
 
 
@@ -48,6 +48,9 @@ def sentiment(doc):
 ##########################################
 # Metapy implementation below with bugs. Saved for future investigation.
 ##########################################
+# import metapy
+# import pytoml
+# import os
 #
 # dataset_path = "review_docs/review_docs.dat"
 #

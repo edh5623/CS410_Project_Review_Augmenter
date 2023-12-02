@@ -1,4 +1,3 @@
-// Passing the current tab URL to the flask server
 var submitQueryButton = document.getElementById("submit_button");
 
 document.getElementById("ratings").style.display = "none";
@@ -8,6 +7,8 @@ submitQueryButton.addEventListener("click", async function () {
 
         // show the loading wheel
         document.getElementById("loader").style.display = "block";
+
+        // Passing the current tab URL to the flask server
 
         // Getting tabs
         const tabs = await chrome.tabs.query({

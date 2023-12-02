@@ -1,12 +1,12 @@
-from flask import Flask, jsonify, request
+"""
+Flask server to run Python code from JavaScript
+"""
+
+from flask import Flask, request
 from redcircle import *
 
 app = Flask(__name__)
 
-
-@app.route('/tra/reviews')
-def reviews():
-    return parse_reviews()
 
 @app.route('/tra/query')
 def query():
@@ -15,9 +15,6 @@ def query():
     print("Item URL: " + item_url)
     print("Query: " + query)
     results_dict = get_top_reviews_and_ratings(query, item_url)
-    # TODO: Comment out to work from command line
-    print("results_lst")
-    print(results_dict)
 
     return json.dumps(results_dict)
 
