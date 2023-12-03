@@ -1,11 +1,15 @@
 # CS410_Project_Review_Augmenter
 
-## Overview 
-1. An overview of the function of the code (i.e., what it does and what it can be used for). 
-
 Chrome extension to augment Target.com with BM25 search on product reviews and a product review sentiment score.
 
-- list functions
+## Overview 
+
+The primary function of the Target Review Augmenter is to enable a user with BM25 search over a collection Target.com of product reviews. The extension will take a query from the user, 
+fetch the product reviews from the Target product page they are currently on, query the reviews using BM25, and display the top results to the user. This allows the user
+to more intelligently search through product reviews to answer any questions they may have about a product.
+
+Additionally, this extension will calculate an aggregated sentiment score over all of the reviews for a given product and display this to the user. This allows the user to compare
+the average star rating that Target provides for a product with the sentiment score as a second opinion on the quality of the product.
 
 ### Use
 
