@@ -47,7 +47,6 @@ def get_reviews(url):
     # make the http GET request to RedCircle API
     api_result = requests.get('https://api.redcircleapi.com/request', params)
 
-
     json_result = api_result.json()
     # print(json.dumps(json_result)) # For debugging, print the JSON response from RedCircle API
     return json_result
