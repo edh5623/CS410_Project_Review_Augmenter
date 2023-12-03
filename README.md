@@ -121,7 +121,7 @@ To run this extension we need to first add the extension to Chrome, run the Flas
      * Windows: https://docs.anaconda.com/free/anaconda/install/windows/
      * MacOS: https://docs.anaconda.com/free/anaconda/install/mac-os/
    * From the CS410_Project_Review_Augmenter directory, clone the Conda environment for this project using the environment.yml with this command: `conda env create -f environment.yml`
-   * Activate the environment: `conda activate cs410-35`
+   * Activate the environment: `conda activate review-augmenter`
  * 4\. Set up the RedCircle API key to retrieve reviews for a given product.
    * Create a free acount on the RedCircle API website: https://www.redcircleapi.com/
    * Log into your account and click on the "API Playground" tab on your account page.
