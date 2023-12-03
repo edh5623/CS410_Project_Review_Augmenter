@@ -89,7 +89,7 @@ but not make them too dominant.
 
 This gives us this equation for the aggregated sentiment score:
 
-![intro](assets/sentiment_equation.PNG)
+![intro](assets/sentiment_equation_sum.PNG)
 
 This final aggregated sentiment score is packaged in the same JSON the ranked reviews are sent in along with the 5-star
 Target score to be displayed to the user via JavaScript.
