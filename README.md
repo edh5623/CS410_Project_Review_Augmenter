@@ -134,7 +134,7 @@ To run this extension we need to first add the extension to Chrome, run the Flas
        ```
    * This free RedCircle account will give you 100 free requests for testing. A request is made every time a query is submitted via the "Search" button.
  * 5\. Run the Flask Server
-   * From the `CS410_Project_Review_Augmenter/python` directory with the cs410-35 environment active run: `python python/flaskapp.py`
+   * From the `CS410_Project_Review_Augmenter/python` directory with the cs410-35 environment active run: `python flaskapp.py`
    * The Flask server is now running
  * 6\. The extension is now ready to use in Chome
 
