@@ -2,6 +2,8 @@
 
 Chrome extension to augment Target.com with BM25 search on product reviews and a product review sentiment score.
 
+### Tutorial Setup and Usage Video: https://youtu.be/Wa3bB88KWk4 
+
 ## Overview 
 
 The primary function of the Target Review Augmenter is to enable a user with BM25 search over a collection Target.com of product reviews. The extension will take a query from the user, 
@@ -127,7 +129,7 @@ To run this extension we need to first add the extension to Chrome, run the Flas
    * Log into your account and click on the "API Playground" tab on your account page.
    * Copy the API key in the upper right corner.
    * In your cloned CS410_Project_Review_Augmenter folder, navigate to the `CS410_Project_Review_Augmenter/python` directory and open the `config.py` file in any editor.
-   * Paste the copied API key into the `api_key` variable defined in `config.py`.
+   * Paste the copied API key into the `api_key` variable defined in `config.py`. Keep the quotes around the API key.
    * `config.py` should now look like this:
      * ```
        api_key = "YOUR_COPIED_API_KEY"
