@@ -13,8 +13,26 @@ the average star rating that Target provides for a product with the sentiment sc
 
 ### Use
 
+Upon opening the extension the user is greeted with a search box and a search button.
+![intro](assets/intro_screen.PNG)
+
+To use the extension, navigate to a Target.com product page that has reviews. For example: https://www.target.com/p/wilson-nba-forge-size-7-basketball/-/A-82153614#lnk=sametab
+![intro](assets/full_screen.PNG)
+
+Next type a query into the search bar and select the Search button to submit the query.
+![intro](assets/enter_query.PNG)
+
+Wait a few seconds for the extension to retrieve the reviews and then the query results will be displayed:
+![intro](assets/query_results.PNG)
+
+The results are displayed in order of relevance. Additionally, the average 5-star rating provided by target is 
+displayed as well as the sentiment rating score.
+
 ## Implementation 
-2. how the software is implemented with sufficient detail so that others can have a basic understanding of your code for future extension or any further improvement. 
+2. how the software is implemented with sufficient detail so that others can have a basic understanding of your code for future extension or any further improvement.
+
+This extension was implemented as a Chrome extension following the guidelines here https://developer.chrome.com/docs/extensions/mv3/getstarted/. This means that the 
+interface was developed using HTML and styled with CSS. The button and search UI functionality is controlled by JavaScript.
 
 ### Key Components:
 * Google Chrome Extensions: https://developer.chrome.com/docs/extensions/mv3/getstarted/
