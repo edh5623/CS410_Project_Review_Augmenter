@@ -85,13 +85,13 @@ in a review. The thought is that longer reviews might provide a more accurate se
 the review and the longer review provides more data to the `SentimentIntensityAnalyzer` to make a more accurate sentiment score.
 However, we don't want a review to be weighted too heavily simply because it was longer, otherwise one long review would largely determine
 the entire sentiment score for a product. Thus, the weight is limited to 50 to still give longer reviews slightly more weight
-but not make them too dominant.
+but not make them too dominant. 
 
+This gives us this equation for the aggregated sentiment score:
 
 ```math
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+Aggregated  Sentiment(reviews) = (\sum_{k=1}^{length(reviews)} min(length(reviews_k), 50) * SentimentIntensityAnalyzer(reviews_k)) / length(reviews)
 ```
-
 
 This final aggregated sentiment score is packaged in the same JSON the ranked reviews are sent in along with the 5-star
 Target score to be displayed to the user via JavaScript.
