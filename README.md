@@ -89,9 +89,7 @@ but not make them too dominant.
 
 This gives us this equation for the aggregated sentiment score:
 
-```math
-Aggregated  Sentiment(reviews) = (\sum_{k=1}^{length(reviews)} min(length(reviews_k), 50) * SentimentIntensityAnalyzer(reviews_k)) / length(reviews)
-```
+![intro](assets/sentiment_equation.PNG)
 
 This final aggregated sentiment score is packaged in the same JSON the ranked reviews are sent in along with the 5-star
 Target score to be displayed to the user via JavaScript.
