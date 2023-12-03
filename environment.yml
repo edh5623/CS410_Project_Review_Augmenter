@@ -1,4 +1,4 @@
-name: cs410-35
+name: review-augmenter
 channels:
   - defaults
 dependencies:
