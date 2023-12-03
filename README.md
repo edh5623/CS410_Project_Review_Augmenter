@@ -55,12 +55,12 @@ of the product.
 
 Once the list of reviews is collected, the review text for each review is preprocessed.
 Preprocessing is done using several functions from the Natural Language Toolkit (NLTK). Firstly, the review is tokenized
-using the `word_tokenize` function in NLTK. The stop words are removed using NLTK's collection of stop words. Finally, each
+using the `word_tokenize` function in NLTK. Then, stop words are removed using NLTK's collection of stop words. Finally, each
 review is stemmed using the `PorterStemmer` in NLTK.
 
 ### BM25
 
-After the reviews are preprocessed, the reviews and the query the user typed in and got sent to the Flask server are used
+After the reviews are preprocessed, the reviews and the query that the user typed in and got sent to the Flask server are used
 together to search the reviews using BM25 search. Originally the Metapy implementation of BM25 was going to be used. However, 
 Metapy seemingly randomly crashed when being called from the Flask server. Metapy also did not provide a way to query a list
 of documents on the fly, the documents must be written to a file on the disk. This led to an inelegant design of writing
@@ -82,7 +82,7 @@ A sentiment score is also calculated for each preprocessed review. This is done 
 This function uses VADER which is a rule-based sentiment analysis system that produces 3 sentiment scores for given text. One 
 of these scores is a compound score which ranges from -1 to 1 with 1 indicating the text was positive and -1 indicating negative text.
 
-To aggregate the VADER scores for each document a weighted average is calculated with the weight being the number of words
+To aggregate the VADER scores for each document, a weighted average is calculated with the weight being the number of words
 in a review. The thought is that longer reviews might provide a more accurate sentiment score since the user was more thorough in writing
 the review and the longer review provides more data to the `SentimentIntensityAnalyzer` to make a more accurate sentiment score.
 However, we don't want a review to be weighted too heavily simply because it was longer, otherwise one long review would largely determine
@@ -108,7 +108,7 @@ Target score to be displayed to the user via JavaScript.
    
 This Chrome extension runs with a Python backend and uses a Flask webserver to allow JavaScript to call Python code. The Python code makes requests to the RedCircle API to get Target product review data.
 
-To run this extension we need to first add the extension to Chrome, run the Flask server included in this repo, and add a RedCircle API key.
+To run this extension we need to first add the extension to Chrome, add a RedCircle API key, and then run the Flask server included in this repo.
 
  * 1\. Clone this repo to your local machine.
  * 2\. Load the extension in Chrome: https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/
