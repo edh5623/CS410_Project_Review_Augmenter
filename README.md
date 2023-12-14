@@ -1,5 +1,7 @@
 # CS410_Project_Review_Augmenter
 
+### This readme acts as the final report and setup 
+
 Chrome extension to augment Target.com with BM25 search on product reviews and a product review sentiment score.
 
 ### Tutorial Setup and Usage Video: https://youtu.be/Wa3bB88KWk4 
